@@ -3,10 +3,11 @@ package demo;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Record;
 
+//è¿™æ˜¯æ–°å¢žçš„æ³¨é‡Š
 public class Erweima extends Controller {
     public void erWeiMa(){
-    	String string="²âÊÔ";
-    	String string2="²âÊÔ2";
+    	String string="ï¿½ï¿½ï¿½ï¿½";
+    	String string2="ï¿½ï¿½ï¿½ï¿½2";
     	Record record=new Record();
     	record.set("r1", string);
     	record.set("r2", string2);
