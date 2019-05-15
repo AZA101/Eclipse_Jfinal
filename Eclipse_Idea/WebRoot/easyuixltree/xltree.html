@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>easyui下拉树</title>
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/default/easyui.css"><!-- 引入EasyUI的样式文件-->
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/icon.css"><!-- 引入EasyUI的图标样式文件-->   
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/demo/demo.css"><!-- 引入模本样式 -->    
+<script type="text/javascript" src="../jquery_easyui/jquery.min.js"></script><!-- 引入JQuery -->   
+<script type="text/javascript" src="../jquery_easyui/jquery.easyui.min.js"></script><!-- 引入EasyUI -->
+<script type="text/javascript" src="../jquery_easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+<div id="dlg" class="easyui-dialog" style="width:500px;height:250px;padding:10px 30px;"
+			title="div块标题" buttons="#dlg-buttons">
+		<h2>横向说明部分</h2>
+		<form id="ff" method="post">
+			<table>
+				<tr>
+					<td>属性列名:</td>
+					<td><input type="text" name="name" style="width:350px;"/></td>
+				</tr>
+				<tr>
+					<td>属性:</td>
+					<td><input type="text" name="address" style="width:350px;"/></td>
+				</tr>
+				<tr>
+					<td>城市:</td>
+					<td><select class="easyui-combotree" url="../easyuixltree/data/city_data.json" name="city" style="width:156px;" method="get"/></td>					
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="dlg-buttons">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="savereg()">Submit</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
+	</div>
+</body>
+</html>

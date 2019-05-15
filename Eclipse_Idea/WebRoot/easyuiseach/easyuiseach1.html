@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>使用easyui进行查询功能</title>
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/default/easyui.css"><!-- 引入EasyUI的样式文件-->
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/icon.css"><!-- 引入EasyUI的图标样式文件-->   
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/demo/demo.css"><!-- 引入模本样式 -->    
+<script type="text/javascript" src="../jquery_easyui/jquery.min.js"></script><!-- 引入JQuery -->   
+<script type="text/javascript" src="../jquery_easyui/jquery.easyui.min.js"></script><!-- 引入EasyUI -->
+<script type="text/javascript" src="../jquery_easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<script type="text/javascript">
+  function doSearch(){
+	  $('#tt').datagrid('load',{//上面的代码调用了 'load' 方法来加载新的数据网格（datagrid）数据。
+		  itemid:$('#itemid').val(),
+		  productid:$('#productid').val()
+	  });
+  }
+  
+</script>
+<body>
+<table id="tt" class="easyui-datagrid" style="width:600px;height:250px"
+		url="datagrid24_getdata.php" toolbar="#tb"
+		title="展示数据" iconCls="icon-save"
+		rownumbers="true" pagination="true">
+	<thead>
+		<tr>
+			<th field="itemid" width="80">Item ID</th>
+			<th field="productid" width="80">Product ID</th>
+			<th field="listprice" width="80" align="right">List Price</th>
+			<th field="unitcost" width="80" align="right">Unit Cost</th>
+			<th field="attr1" width="150">Attribute</th>
+			<th field="status" width="60" align="center">Stauts</th>
+		</tr>
+	</thead>
+</table>
+<div id="tb" style="padding:3px">
+	<span>Item ID:</span>
+	<input id="itemid" style="line-height:26px;border:1px solid #ccc">
+	<span>Product ID:</span>
+	<input id="productid" style="line-height:26px;border:1px solid #ccc">
+	<a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
+</div>
+</body>
+</html>

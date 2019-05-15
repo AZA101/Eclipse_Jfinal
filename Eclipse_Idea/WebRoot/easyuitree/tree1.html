@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>树形节点的设置</title>
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/default/easyui.css"><!-- 引入EasyUI的样式文件-->
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/icon.css"><!-- 引入EasyUI的图标样式文件-->   
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/demo/demo.css"><!-- 引入模本样式 -->    
+<script type="text/javascript" src="../jquery_easyui/jquery.min.js"></script><!-- 引入JQuery -->   
+<script type="text/javascript" src="../jquery_easyui/jquery.easyui.min.js"></script><!-- 引入EasyUI -->
+<script type="text/javascript" src="../jquery_easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	var node = $('#tt').tree('getSelected');//获取树节点
+	if (node){
+		var nodes = [{
+			"id":13,
+			"text":"NBA"
+		},{
+			"id":14,
+			"text":"CBA"
+		}];
+		$('#tt').tree('append',{
+			parent:node.target,
+			data:nodes
+		});
+	}
+});
+
+</script>
+
+<body>
+<div style="width:200px;height:auto;border:1px solid #ccc;">
+<!-- 		<ul id="tt" class="easyui-tree" url="tree_data.json"></ul> -->
+		<ul id="tt" class="easyui-tree" url="../easyuitree/tree_data.json"></ul>
+<!-- 		<ul id="tt" class="easyui-tree" url="../easyuitree/tree_data.json" method="get"></ul>  -->
+	</div>
+	
+</body>
+</html>

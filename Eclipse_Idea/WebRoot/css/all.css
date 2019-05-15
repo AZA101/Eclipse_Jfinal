@@ -1,0 +1,80 @@
+
+#top {
+	position: fixed;
+	top: 4px;
+	left: 0px;
+	height: 35px;
+	width: 100%;
+	background: #E0E0E0;
+	z-index: 6;
+	text-align: center;
+}
+
+.printhide {
+	display: : block;
+}
+
+table {
+	margin-top: 10px;
+	font-family: verdana, arial, sans-serif;
+	color: #333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+
+table td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+.button_u {
+	background: #fff url(../images/button_u.jpg) bottom left repeat-x;
+	border: 1px solid #B1CCE8;
+	line-height: 29px;
+	height: 31px;
+	padding: 0px 12px;
+	color: #333333;
+	font-size: 1.0em;
+	vertical-align: middle;
+	cursor: pointer;
+	overflow: visible;
+	_padding-top: 3px;
+	_height: 27px;
+	_line-height: 27px;
+}
+
+.button_f {
+	background: #fff url(../images/button_f.jpg) bottom left repeat-x;
+	border: 1px solid #B1CCE8;
+	line-height: 29px;
+	height: 31px;
+	padding: 0px 12px;
+	color: #333333;
+	font-size: 1.0em;
+	vertical-align: middle;
+	cursor: pointer;
+	overflow: visible;
+	_padding-top: 3px;
+	_height: 27px;
+	_line-height: 27px;
+}
+
+.button_d {
+	background: #fff url(../images/button_d.jpg) bottom left repeat-x;
+	border: 1px solid #B1CCE8;
+	line-height: 29px;
+	height: 31px;
+	padding: 0px 12px;
+	color: #333333;
+	font-size: 1.01em;
+	vertical-align: middle;
+	cursor: pointer;
+	overflow: visible;
+	_padding-top: 3px;
+	_height: 27px;
+	_line-height: 27px;
+}

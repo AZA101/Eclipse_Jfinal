@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"><!-- 文件必须放在webRoot下面不能放在其他地方 -->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<title>跟随着写的</title><!-- 用到ajax的时候才引入js样式 -->
+</head>
+<body><!-- 下面是用freemarker的访问方式 -->
+<script type="text/javascript">
+hello= "${people!}" everyone  //这种方式是显示在网页的后台，数值取自java那里
+</script>
+ ${people} everyone
+ ${userid} name
+<#list info as u>
+<h2>${u.ename},${u.pernr}</h2>
+</#list>
+<!-- 用的是ajax方式 -->
+<script type="text/javascript">
+console.info("${info}")
+function submit(){
+	$.ajax({//是将输入输出全部封装起来
+		url:"save",//目的地址
+		type:"post",//另一种为GET
+		dataType:"json",//js样式
+		data:{
+			uu:$("#user").val(),//获取前台输入的数据，采用的是键值对的格式 
+			pp:$("#ps").val(),//获取前台的数据
+			ag:$("#age").val()//在控制台会显示出来表单里面的内容
+		},
+		success:function(data){
+			alert(data.flag);
+		},
+		error:function(data){
+			
+		}
+	});
+}
+</script>
+用户名:<input type="text" id="user" name="uu"></input></br>
+密码:<input type="text" id="ps" name="pp"/></br>
+年龄:<input type="text" id="age" name="ag" />
+<input type="submit" onclick="submit()" value="提交" /><!-- 点击调用submit方法 -->
+</body>
+</html>

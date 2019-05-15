@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>easyui file upload</title>
+<link rel="stylesheet" type="text/css" href="">
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/default/easyui.css"><!-- 引入EasyUI的样式文件-->
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/icon.css"><!-- 引入EasyUI的图标样式文件-->   
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/demo/demo.css"><!-- 引入模本样式 -->  
+<link rel="stylesheet" type="text/css" href="../datalist/uploadify.css">  
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script><!-- 引入JQuery --> 
+<!-- <script type="text/javascript" src="../jquery_easyui/jquery.min.js"></script> -->
+<script type="text/javascript" src="../jquery_easyui/jquery.easyui.min.js"></script><!-- 引入EasyUI -->
+<script type="text/javascript" src="../jquery_easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="../datalist/jquery.uploadify-3.1.js"></script>
+<script type="text/javascript" src="../datalist/jquery.uploadify3.1.fixed.js"></script>
+<!-- <script type="text/javascript" src="../file/js/fileupload.js"></script> -->
+<style type="text/css">
+table {
+        border-collapse: collapse;
+}
+  table tr td {
+   border: 0px solid black;
+     margin:0px;
+     padding: 0px 0px;
+    
+  }
+  table tr th {
+      border: 2px solid black;
+       margin:0px;
+       padding: 0px 0px;
+  }
+  .file1{
+    width:100%;
+
+  }
+</style>
+<script type="text/javascript">
+$(function(){
+	
+});
+
+
+function fileupload(){
+	// $('#rightFrame').load(function(){
+	    //   var account = $("#account").val();
+	    //   var id= $("#userId").val();
+	    //   var currentNode=0;
+	$("#file1").uploadify({
+	    //注:这里uploadify为html标签，文件输入框id
+	                  swf: 'css/uploadify.swf',
+	                  uploader: 'fileSC',//调用的后端方法
+	                  cancelImg: '/images/uploadify-cancel.png',
+	                  buttonText:'选择文件',
+	                  fileObjName :'uploadify',//在服务器端接收文件的Form表单键名
+	                  auto: true,
+	                  multi:true,
+	                  Debug:true,
+	                  queueID:'fileQueue',//这里fileQueue 为上传进度条显示在哪个div里
+	               //   formData:{'account':account,'id':id,'currentNode':$("#rightFrame").contents().find("#test").val()},
+	                  removeCompleted:true,
+	                  queueSizeLimit:999,
+	                  fileSizeLimit:'100MB',
+	                  height:28,
+	                  width:90,
+	                  successTimeout:28,
+	                  requeueErrors:true,
+	                  uploadLimit:5,
+	                  onUploadSuccess: function (file, data, response) {
+	                   if(response)
+	                   {
+	                    currentNode=data;
+	                      }
+	            },
+	            onQueueComplete : function(stats){
+	                window.parent.rightFrame.location.href="fileaction?filenode="+currentNode;
+	             alert("上传完毕");
+	               }
+	                
+	           });
+	      // });
+	 
+}
+</script>
+</head>
+<body>
+
+<div class="easyui-layout" style="width:810px;height:400px;">
+  <div region="west" split="true" title="左边" style="width:510px;height:100%">
+  <table class="easyui-datagrid" title="数据显示" style="width:100%;height:100%"
+   data-options="singleSelect:true,collapsible:true,url:'filecheck',method:'post'">
+   <thead>
+			<tr>
+				<th data-options="field:'filename',width:142,align:'center'">名称</th>
+				<th data-options="field:'fileurl',width:220,align:'center'">地址</th>
+				<th data-options="field:'uploadtime',width:138,align:'center'">时间</th>				
+			</tr>
+		</thead>
+                
+    </table>
+  </div>
+  
+  <div id="content" region="center" title="中间" style="padding:5px;">
+    <table id="table1" >
+        <tr>
+           <th>附件上传</th>
+          <td><input class="file1" id="file1" type="file"></td> 
+             
+           <td><input id="file2" type="button" value="上传" onclick="fileupload()"></td>
+        </tr>
+    </table>
+  </div>
+  <input type="file" name="uploadify" id="uploadify" value="浏览"/>
+  <div id="fileQueue" style="border-top: thin solid gray;"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
+<html>  
+  <head>  
+    <title>一个简单的panel</title>  
+      
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">  
+    <meta http-equiv="description" content="this is my page">  
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">  
+      
+    <link rel="stylesheet" type="text/css" href="../css/default/om-default.css">  
+    <script type="text/javascript" src="../js/jquery.min.js"></script>  
+    <script type="text/javascript" src="../js/operamasks-ui.min.js"></script>  
+    <script type="text/javascript">  
+        $(document).ready(function(){  //使用的是operamasks-ui是一个前端UI库，基于jQuery的一个前端框架
+            //创建一个omPanel组建  
+            var $panel = $("#myPanel").omPanel({  
+                width:400,  
+                height:200,  
+                title:"panel示例",  
+                collapsed:true,   //面板为收起状态  
+                collapsible:true,  //显示面板可收缩按钮  
+                closable:true,  //渲染关闭按钮  
+                //onBeforeOpen:function(event){if(window.count!=0){return false;}},  
+                onOpen:function(event){alert("panel被打开了");}  
+            });  
+            $("#open").click(function(){  
+                $panel.omPanel("open");  
+            });  
+            $("#setWidth").click(function(){  
+                $panel.omPanel({width:600});  
+                  
+            });  
+            $("#showTitle").click(function(){  
+                alert("标题"+$panel.omPanel("options").title);  
+        });  
+            $("#updateTitle").click(function(){  
+                //$panel.omPanel({title:"新标题"});  
+                $panel.omPanel("setTitle","新标题");     
+            });  
+        });  
+    </script>  
+  </head>  
+    
+  <body>  
+    <div id="myPanel">  
+        这是一个简单的Panel示例  
+    </div>  
+    <input id="open" type="button" value="打开panel"/>  
+    <input id="setWidth" type="button" value="宽度设为600px"/>  
+    <input id="showTitle" type="button" value="获取title"/>  
+    <input id="updateTitle" type="button" value="更新标题"/>  
+  </body>  
+</html>  

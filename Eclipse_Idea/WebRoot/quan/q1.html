@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/default/easyui.css"><!-- 引入EasyUI的样式文件-->
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/icon.css"><!-- 引入EasyUI的图标样式文件-->   
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/demo/demo.css"><!-- 引入模本样式 -->    
+<script type="text/javascript" src="../jquery_easyui/jquery.min.js"></script><!-- 引入JQuery -->   
+<script type="text/javascript" src="../jquery_easyui/jquery.easyui.min.js"></script><!-- 引入EasyUI -->
+<script type="text/javascript" src="../jquery_easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+<ul id="tt"></ul>
+<script type="text/javascript">
+$('#tt').tree({
+    url:'../jquery_easyui/demo/combotree/tree_data1.json'
+});
+</script>
+</body>
+</html>

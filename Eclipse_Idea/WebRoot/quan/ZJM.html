@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>整体布局</title>
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/default/easyui.css"><!-- 引入EasyUI的样式文件-->
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/themes/icon.css"><!-- 引入EasyUI的图标样式文件-->   
+<link rel="stylesheet" type="text/css" href="../jquery_easyui/demo/demo.css"><!-- 引入模本样式 -->    
+<script type="text/javascript" src="../jquery_easyui/jquery.min.js"></script><!-- 引入JQuery -->   
+<script type="text/javascript" src="../jquery_easyui/jquery.easyui.min.js"></script><!-- 引入EasyUI -->
+<script type="text/javascript" src="../jquery_easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+<div class="easyui-panel" title="面板标题"style="width:100%;height:540px;overflow:hidden;fit:false;">
+<div class="easyui-layout"  style="width:100%; height:100%; fit:false;">
+<div data-options="region:'west',split:true" style="width:20%;padding:10px; fit:false;">
+<iframe src="q1.html" width="400px" height="300px" scrolling="no"></iframe></div>
+<div data-options="region:'center',split:true" style="width:20%;padding:10px; fit:false;">
+<iframe src="q2.html" width="700px" height="500px" scrolling="auto"></iframe></div>
+<div data-options="region:'east',split:true" style="width:20%;padding:10px; fit:false;">
+<iframe src="q3.html" width="400px" height="300px" scrolling="no"></iframe></div></div>
+</div>
+</body>
+</html>

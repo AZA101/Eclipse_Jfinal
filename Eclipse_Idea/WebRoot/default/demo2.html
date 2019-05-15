@@ -1,0 +1,57 @@
+<!DOCTYPE html><!-- 声明文档-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> 爱心飘落 </title>
+		<meta name="generator" content="editplus" />
+		<meta name="author" content="制作者为yjb" />
+		<meta name="keywords" content="爱心,飘落" /><!--网页关键字 -->
+		<meta name="description" content="这是一个网页描述信息" /><!--网页描述信息-->
+		<!-- css为层叠样式表-->
+		<style>
+			html{
+			 height:100%;/*继承浏览器的高度*/
+			}
+		 body{
+		 overflow:hidden;/*超出部分进行隐藏*/
+		    margin:0px;/*清除默认的外边距*/
+			background:url("images/2.jpg") no-repeat center/cover;; /*no-repeat图片不重复 ceter是居中，cover是自适应*/
+		  }	
+		 
+		 .snowfall-flakes:before{
+		 content:"";/*content这个属性好像是必须加上*/
+		  position:absolute;
+		  top:0px;
+		  left:0px;
+		  width:10px;
+		  height:16px;
+		  background-color:red;
+		  border-radius:5px 5px 0px 0px;/*圆角属性*/
+		  transform:rotate(-45deg);
+		 }
+		.snowfall-flakes:after{ /*伪类选择器，在元素后面加上内容*/
+		 content:"";
+		 position:absolute;
+		  top:0px;
+		  left:0px;
+		  width:10px;
+		  height:16px;
+		  background-color:red;
+		  border-radius:5px 5px 0px 0px;
+		  transform:translateX(4.3px)rotate(45deg);
+		}      
+		</style>		
+	</head>
+<body>
+<div class="snowfall-flakes"></div>
+<script src="js/jquery-1.2.6.min.js"></script>
+<script src="js/snowfall.jquery.js"></script>
+<script> 
+   $(document).snowfall({flakeCount:100,maxSpeed:10});//开启特效数量和速度
+</script>
+</body>
+</html>
+<!-- 
+  外边距 就是在div之外，margin就是外边距
+  div是自动换行，独占一行，支持宽高
+-->
