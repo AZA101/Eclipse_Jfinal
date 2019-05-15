@@ -146,7 +146,7 @@ public void fileSC(){
 	}
 }
 
-
+//测试
 public void kankan(){
 	String strDate="2015-08-10";
 	String strDate1="2015-08-01";
