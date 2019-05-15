@@ -8,22 +8,22 @@ import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
 
 import demo.service.impl.FileServiceImpl;
-public class HelloController extends Controller {//ËùÓĞµÄ·½·¨¶¼Òª¼Ì³Ğ¿ØÖÆÆ÷
+public class HelloController extends Controller {//æ‰€æœ‰çš„æ–¹æ³•éƒ½è¦ç»§æ‰¿æ§åˆ¶å™¨
 public void index() {
-//renderText("Hello JFinal World.");//jfinal·â×°µÄÊä³ö·½·¨
-	render("login2.html");//½øÈëµ½loginµÄ±íµ¥
+//renderText("Hello JFinal World.");//jfinalå°è£…çš„è¾“å‡ºæ–¹æ³•
+	render("login2.html");//è¿›å…¥åˆ°loginçš„è¡¨å•
 }
-
+// æµ‹è¯•è¿œç¨‹ä¸‹è½½åˆ°æœ¬åœ°
 public void select(){
-	//renderText("ÔÙÊÔÒ»´Î");// renderÖ´ĞĞÖ®ºó£¬ÏÂÃæµÄÄÚÈİ¾Í»áÏÔÊ¾²»³öÀ´
+	//renderText("å†è¯•ä¸€æ¬¡");// renderæ‰§è¡Œä¹‹åï¼Œä¸‹é¢çš„å†…å®¹å°±ä¼šæ˜¾ç¤ºä¸å‡ºæ¥
   List<Record> list = Db.find("select * from erp_hrinfo FETCH FIRST 50 ROWS ONLY");
- //   List<User_menu_bak>list=User_menu_bak.bao.find("select * from erp_hrinfo FETCH FIRST 50 ROWS ONLY");//model·½Ê½Ó³Éä
+ //   List<User_menu_bak>list=User_menu_bak.bao.find("select * from erp_hrinfo FETCH FIRST 50 ROWS ONLY");//modelæ–¹å¼æ˜ å°„
 //	List<Record> list=new ArrayList<Record>();
 //	Record r=new Record();
-//	r.set("name", "Àî");
+//	r.set("name", "æ");
 //	r.set("age", 22);
 //	list.add(r);
-   String  userid=getPara("userid","");//useridµÄÕâÁ½ĞĞÊÇÎÒËæ±ãĞ´µÄ£¬²âÊÔgetPara·½·¨ÓÃµÄ
+   String  userid=getPara("userid","");//useridçš„è¿™ä¸¤è¡Œæ˜¯æˆ‘éšä¾¿å†™çš„ï¼Œæµ‹è¯•getParaæ–¹æ³•ç”¨çš„
     setAttr("userid",userid);
 	setAttr("people","hi");
 	setAttr("info",list);
@@ -33,14 +33,14 @@ public void select(){
 public void save(){
 	String userName=getPara("uu");
 	String ps=getPara("pp");
-	int age = getParaToInt("ag");//ÕâÀïÓÃÁËgetParaToIntÒò´ËÔÚÇ°Ì¨ÌîĞ´µÄÊ±ºò¾Í²»ÄÜÊ²Ã´¶¼²»Ìî£¬·ñÔò»á±¨´í
+	int age = getParaToInt("ag");//è¿™é‡Œç”¨äº†getParaToIntå› æ­¤åœ¨å‰å°å¡«å†™çš„æ—¶å€™å°±ä¸èƒ½ä»€ä¹ˆéƒ½ä¸å¡«ï¼Œå¦åˆ™ä¼šæŠ¥é”™
 	Record r = new Record();
 	r.set("uid", userName);
 	r.set("mid", ps);
-	r.set("level", age);//ÕâÀïÒªºÍÊı¾İ¿âµÄ×Ö¶ÎÃû¶ÔÓ¦ÆğÀ´£¬¼´×Ô¼ºÉè¼ÆµÄ±äÁ¿Òª²åÈëµ½Êı¾İ¿âµÄÄÄ¸ö×Ö¶ÎÀïÃæ
-    boolean flag=Db.save("USER_MENU_BAK", r);//ÕâÊÇÒªÔÚÊı¾İ¿âÖĞ²åÈëÊı¾İ
-   // render("first.html");//ÔÚrenderJsonÇ°ÃæÔÚÔÙĞ´Ò»¸örenderÊÇÃ»ÎÊÌâµÄ
-	//ÏÂÃæÊÇÖ®Ç°Ğ´µÄ
+	r.set("level", age);//è¿™é‡Œè¦å’Œæ•°æ®åº“çš„å­—æ®µåå¯¹åº”èµ·æ¥ï¼Œå³è‡ªå·±è®¾è®¡çš„å˜é‡è¦æ’å…¥åˆ°æ•°æ®åº“çš„å“ªä¸ªå­—æ®µé‡Œé¢
+    boolean flag=Db.save("USER_MENU_BAK", r);//è¿™æ˜¯è¦åœ¨æ•°æ®åº“ä¸­æ’å…¥æ•°æ®
+   // render("first.html");//åœ¨renderJsonå‰é¢åœ¨å†å†™ä¸€ä¸ªrenderæ˜¯æ²¡é—®é¢˜çš„
+	//ä¸‹é¢æ˜¯ä¹‹å‰å†™çš„
 //	System.out.println(userName+"and"+ps);
 //	Record r1=new Record();
 //	r1.set("flag", true);
@@ -51,11 +51,11 @@ public void save(){
 public void update(){
 	String userName=getPara("uu");
 	int age=getParaToInt("ag");
-	String mid=getPara("pp");//ÕâÀïµÄÃû³ÆÊÇÎÄ±¾µÄname,ÕâÀïÌØ±ğÖØÒª
+	String mid=getPara("pp");//è¿™é‡Œçš„åç§°æ˜¯æ–‡æœ¬çš„name,è¿™é‡Œç‰¹åˆ«é‡è¦
 	Record re=new Record();
 	re.set("uid",userName);
 	re.set("mid", mid);
-	re.set("level", age);//ÕâÀïÒªºÍÊı¾İ¿âµÄ×Ö¶ÎÃû¶ÔÓ¦ÆğÀ´
+	re.set("level", age);//è¿™é‡Œè¦å’Œæ•°æ®åº“çš„å­—æ®µåå¯¹åº”èµ·æ¥
 	boolean i=Db.update("USER_MENU_BAK",  "uid", re);
 	//render("first.html");
 	renderJson(re);
@@ -79,7 +79,7 @@ public void xianshi(){
 	renderJson(list);
 }
 
-public void login(){//ÕâÊÇÓÃÄÇ¸ö±í¸ñÀ´Ìá½»
+public void login(){//è¿™æ˜¯ç”¨é‚£ä¸ªè¡¨æ ¼æ¥æäº¤
 
 	String uid=getPara("uu");
 	String mid=getPara("pp");
@@ -92,11 +92,11 @@ public void login(){//ÕâÊÇÓÃÄÇ¸ö±í¸ñÀ´Ìá½»
   }else{
 	  renderJson(re);
   }
-  //  System.out.println("Êä³öÕËºÅ:"+name+"Êä³öÃÜÂë:"+mima);
-	System.out.println("ÊäÈëÕËºÅ:"+uid+"ÊäÈëÃÜÂë:"+mid);
+  //  System.out.println("è¾“å‡ºè´¦å·:"+name+"è¾“å‡ºå¯†ç :"+mima);
+	System.out.println("è¾“å…¥è´¦å·:"+uid+"è¾“å…¥å¯†ç :"+mid);
 	//System.out.println(list);
 }
-public void login2(){//ÓÃdialog¶Ô»°¿òÀ´ÅªµÄµÇÂ¼´°¿Ú
+public void login2(){//ç”¨dialogå¯¹è¯æ¡†æ¥å¼„çš„ç™»å½•çª—å£
 	String uid=getPara("name");
 	String mid=getPara("password");
 	boolean re=false;
@@ -110,9 +110,9 @@ public void login2(){//ÓÃdialog¶Ô»°¿òÀ´ÅªµÄµÇÂ¼´°¿Ú
 }
 
 public void url_qs(){
-	String userid=getPara("userid","123");//ÏÈÉèÖÃuserIDÎª¿Õ
-	setAttr("userid",userid);//½«userID´æÈëµ½±äÁ¿useridÖĞ
-	render("url_jg.html");//Ìø×ªµ½Ö¸¶¨µÄhtmlÒ³Ãæ
+	String userid=getPara("userid","123");//å…ˆè®¾ç½®userIDä¸ºç©º
+	setAttr("userid",userid);//å°†userIDå­˜å…¥åˆ°å˜é‡useridä¸­
+	render("url_jg.html");//è·³è½¬åˆ°æŒ‡å®šçš„htmlé¡µé¢
 }
 
 public void fileupload(){
@@ -120,7 +120,7 @@ public void fileupload(){
 	render("/file/file.html");
 }
 public void filecheck(){
-	//System.out.println("½øÈëµ½¸Ã·½·¨");
+	//System.out.println("è¿›å…¥åˆ°è¯¥æ–¹æ³•");
 	FileServiceImpl fileServiceImpl =new FileServiceImpl();	
 	List<Record> records=fileServiceImpl.check();
 	//System.out.println(records);
@@ -129,19 +129,19 @@ public void filecheck(){
 public void fileSC(){
 	/*String name=getPara("name");
 	String type=getPara("type");*/
-	String name="ĞÂ½¨ÎÄ±¾";
+	String name="æ–°å»ºæ–‡æœ¬";
 	String type=".txt";
-	System.out.println("Êä³öÀàĞÍ:"+name+"ºÍ"+type);
-	System.out.println("½øÈëµ½¾ßÌåÉÏ´«·½·¨");
+	System.out.println("è¾“å‡ºç±»å‹:"+name+"å’Œ"+type);
+	System.out.println("è¿›å…¥åˆ°å…·ä½“ä¸Šä¼ æ–¹æ³•");
 	FileServiceImpl fileServiceImpl =new FileServiceImpl();	
 	//List<Record> records=fileServiceImpl.upload(name,type);
 	int a= fileServiceImpl.upload(name,type);
-	System.out.println("Êä³ö×ÖÄ¸a:"+a);
+	System.out.println("è¾“å‡ºå­—æ¯a:"+a);
 	if(a>0){
-		renderJson(new Record().set("ok", true).set("msg", "´æ´¢ÄÚÈİ³É¹¦"));
+		renderJson(new Record().set("ok", true).set("msg", "å­˜å‚¨å†…å®¹æˆåŠŸ"));
 		return;
 	}else if(a<=0){
-		renderJson(new Record().set("ok", false).set("msg", "´æ´¢ÄÚÈİÊ§°Ü"));
+		renderJson(new Record().set("ok", false).set("msg", "å­˜å‚¨å†…å®¹å¤±è´¥"));
 		return;
 	}
 }
@@ -157,7 +157,7 @@ public void kankan(){
             Date date1=simpleDateFormat.parse(strDate1);
             Date date2=simpleDateFormat.parse(strDate2);
             if(date.getTime()>=date1.getTime()&&date.getTime()<=date2.getTime()){
-            	System.out.println("¸ÃÈÕÆÚÔÚ8ÔÂ1ºÍ12ÔÂ31Ö®¼ä");
+            	System.out.println("è¯¥æ—¥æœŸåœ¨8æœˆ1å’Œ12æœˆ31ä¹‹é—´");
             }
             System.out.println(date);
         } catch(Exception  px) {
